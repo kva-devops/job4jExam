@@ -21,5 +21,7 @@ Here will be instructions on how to use the project
 ## Contact
 
 If you have some questions call me on Skype or Telegram: 
+
 Skype: tribuna87
+
 Telegram: @kutiavinvladimir
