@@ -7,6 +7,7 @@ This is a training project created in the Android Studio
 ### Start screen of the Exam App
 
 This is a user greeting:
+
 ![Image start screen](https://raw.githubusercontent.com/kva-devops/job4jExam/master/images/startScreenImage.png)
 
 ## Configuration
