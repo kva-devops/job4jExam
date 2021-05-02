@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">job4j Exam</string>
+    <string name="domain_prompt">Choose area</string>
+    <string name="exp_data">Choose date</string>
+    <string-array name="domain_arrays">
+        <item>Moscow</item>
+        <item>SPb</item>
+    </string-array>
+    <string-array name="data_arrays">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+    </string-array>
+    <string name="city">City</string>
+    <string name="object_name">Object name</string>
+    <string name="street_and_house">Street and house</string>
+    <string name="name_client">Client name</string>
+    <string name="work_date">Data work</string>
+    <string name="temp_air">Air temperature</string>
+    <string name="humid_air">Air humidity</string>
+    <string name="pres_air">Atmospheric pressure</string>
+    <string name="num_report">Num of report</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="radio_button">Answer option</string>
+    <string name="greeting">Hello friend!</string>
+</resources>

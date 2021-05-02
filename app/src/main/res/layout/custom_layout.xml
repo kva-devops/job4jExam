@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:width="200dp"
-                android:text="Город" />
+                android:text="@string/city" />
 
             <Spinner
                 android:id="@+id/spinner"
@@ -44,17 +44,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:width="200dp"
-                android:text="Имя объекта" />
+                android:text="@string/object_name" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:autofillHints="@string/object_name"
                 android:ems="10"
-                android:hint="Имя объекта"
+                android:hint="@string/object_name"
                 android:inputType="textPersonName"
-                android:text="Имя объекта" />
+                android:text="@string/object_name" />
 
         </LinearLayout>
 
@@ -69,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:width="200dp"
-                android:text="Улица и дом" />
+                android:text="@string/street_and_house" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName3"
@@ -77,9 +78,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Улица и дом"
+                android:hint="@string/street_and_house"
                 android:inputType="textPersonName"
-                android:text="Улица и дом" />
+                android:text="@string/street_and_house"
+                android:importantForAutofill="no" />
         </LinearLayout>
 
         <LinearLayout
@@ -93,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:width="200dp"
-                android:text="ФИО заказчика" />
+                android:text="@string/name_client" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName4"
@@ -101,9 +103,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="ФИО заказчика"
+                android:hint="@string/name_client"
                 android:inputType="textPersonName"
-                android:text="ФИО заказчика" />
+                android:text="@string/name_client"
+                android:importantForAutofill="no" />
         </LinearLayout>
 
         <LinearLayout
@@ -117,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:width="200dp"
-                android:text="Дата испытания" />
+                android:text="@string/exp_data" />
 
             <Spinner
                 android:id="@+id/spinner2"
@@ -140,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:width="200dp"
-                android:text="Температура воздуха" />
+                android:text="@string/temp_air" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName5"
@@ -148,9 +151,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Температура воздуха"
+                android:hint="@string/temp_air"
                 android:inputType="textPersonName"
-                android:text="Температура воздуха" />
+                android:text="@string/temp_air"
+                android:importantForAutofill="no" />
         </LinearLayout>
 
         <LinearLayout
@@ -164,7 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:width="200dp"
-                android:text="Влажность воздуха" />
+                android:text="@string/humid_air" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName6"
@@ -172,9 +176,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Влажность воздуха"
+                android:hint="@string/humid_air"
                 android:inputType="textPersonName"
-                android:text="Влажность воздуха" />
+                android:text="@string/humid_air"
+                android:importantForAutofill="no" />
         </LinearLayout>
 
         <LinearLayout
@@ -188,7 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:width="200dp"
-                android:text="Атм. давление" />
+                android:text="@string/pres_air" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName7"
@@ -196,9 +201,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Атм. давление"
+                android:hint="@string/pres_air"
                 android:inputType="textPersonName"
-                android:text="Атм. давление" />
+                android:text="@string/pres_air"
+                android:importantForAutofill="no" />
         </LinearLayout>
 
         <LinearLayout
@@ -212,7 +218,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:width="200dp"
-                android:text="Номер отчета" />
+                android:text="@string/num_report" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName8"
@@ -220,9 +226,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Номер отчета"
+                android:hint="@string/num_report"
                 android:inputType="textPersonName"
-                android:text="Номер отчета" />
+                android:text="@string/num_report"
+                android:importantForAutofill="no" />
         </LinearLayout>
 
     </LinearLayout>

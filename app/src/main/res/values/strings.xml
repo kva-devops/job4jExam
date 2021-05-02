@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">job4j Exam</string>
     <string name="domain_prompt">Выберите область</string>
@@ -14,4 +15,17 @@
         <item>Май</item>
         <item>Июнь</item>
     </string-array>
+    <string name="city">Город</string>
+    <string name="object_name">Имя объекта</string>
+    <string name="street_and_house">Улица и дом</string>
+    <string name="name_client">ФИО заказчика</string>
+    <string name="work_date">Дата испытания</string>
+    <string name="temp_air">Температура воздуха</string>
+    <string name="humid_air">Влажность воздуха</string>
+    <string name="pres_air">Атм. давление</string>
+    <string name="num_report">Номер отчета</string>
+    <string name="back">Назад</string>
+    <string name="next">Вперед</string>
+    <string name="radio_button">Вариант ответа</string>
+    <string name="greeting">Привет друг!</string>
 </resources>
