@@ -21,7 +21,7 @@ public class ExamActivity extends AppCompatActivity {
 
     private static final String TAG = "ExamActivity";
     private static int counterTurn = 0;
-    private final List<Question> question = Arrays.asList(
+    private final List<Question> questions = Arrays.asList(
             new Question(
                     1, "How many primitive variables does Java have?",
                     Arrays.asList(
@@ -49,11 +49,19 @@ public class ExamActivity extends AppCompatActivity {
 
     private void fillForm() {
         findViewById(R.id.previous).setEnabled(position != 0);
-        findViewById(R.id.next).setEnabled(position != question.size() - 1);
+        findViewById(R.id.next).setEnabled(false);
         final TextView text = findViewById(R.id.question);
-        Question question = this.question.get(this.position);
+        Question question = this.questions.get(this.position);
         text.setText(question.getText());
         RadioGroup variants = findViewById(R.id.variants);
+        variants.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (position != questions.size() - 1) {
+                    findViewById(R.id.next).setEnabled(true);
+                }
+            }
+        });
         for (int index = 0; index != variants.getChildCount(); index++) {
             RadioButton button = (RadioButton) variants.getChildAt(index);
             Option option = question.getOptions().get(index);
@@ -65,7 +73,7 @@ public class ExamActivity extends AppCompatActivity {
     private void showAnswer() {
         RadioGroup variants = findViewById(R.id.variants);
         int id = variants.getCheckedRadioButtonId();
-        Question question = this.question.get(this.position);
+        Question question = this.questions.get(this.position);
         result.put(position, id);
         Toast.makeText(
                 this, "Your answer is " + id + ", correct is " + question.getAnswer(),
