@@ -54,14 +54,7 @@ public class ExamActivity extends AppCompatActivity {
         Question question = this.questions.get(this.position);
         text.setText(question.getText());
         RadioGroup variants = findViewById(R.id.variants);
-        variants.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (position != questions.size() - 1) {
-                    findViewById(R.id.next).setEnabled(true);
-                }
-            }
-        });
+        variants.setOnCheckedChangeListener(this::radioCheck);
         for (int index = 0; index != variants.getChildCount(); index++) {
             RadioButton button = (RadioButton) variants.getChildAt(index);
             Option option = question.getOptions().get(index);
@@ -88,36 +81,36 @@ public class ExamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.fillForm();
         Button next = findViewById(R.id.next);
-        next.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        RadioGroup variants = findViewById(R.id.variants);
-                        int id = variants.getCheckedRadioButtonId();
-                        if (id != -1) {
-                            showAnswer();
-                            position++;
-                            fillForm();
-                        } else {
-                            showAnswer();
-                            fillForm();
-                        }
-                    }
-                }
-        );
+        next.setOnClickListener(this::nextBtn);
 
         Button previous = findViewById(R.id.previous);
-        previous.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        position--;
-                        fillForm();
-                    }
-                }
-        );
+        previous.setOnClickListener(this::prevBtn);
         Log.d(TAG, "Turn Counter: " + String.valueOf(counterTurn));
         Log.d(TAG, "onCreate");
+    }
+
+    private void prevBtn(View view) {
+        position--;
+        fillForm();
+    }
+
+    private void nextBtn(View view) {
+        RadioGroup variants = findViewById(R.id.variants);
+        int id = variants.getCheckedRadioButtonId();
+        if (id != -1) {
+            showAnswer();
+            position++;
+            fillForm();
+        } else {
+            showAnswer();
+            fillForm();
+        }
+    }
+
+    private void radioCheck(RadioGroup radioGroup, int i) {
+        if (position != questions.size() - 1) {
+            findViewById(R.id.next).setEnabled(true);
+        }
     }
 
     @Override
