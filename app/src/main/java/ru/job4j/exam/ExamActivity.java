@@ -3,6 +3,7 @@ package ru.job4j.exam;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,10 +23,13 @@ import ru.job4j.exam.store.QuestionStore;
 public class ExamActivity extends AppCompatActivity {
 
     private static final String TAG = "ExamActivity";
+    public static final String HINT_FOR = "hint_for";
+    public static final String RESULT_MAP = "result_map";
     private static int counterTurn = 0;
     private final QuestionStore store = QuestionStore.getInstance();
     private int position = 0;
-    private Map<Integer, Integer> result = new HashMap<>();
+    private String[] result = new String[store.size()];
+
 
     private void fillForm() {
         findViewById(R.id.previous).setEnabled(position != 0);
@@ -47,12 +51,15 @@ public class ExamActivity extends AppCompatActivity {
         RadioGroup variants = findViewById(R.id.variants);
         int id = variants.getCheckedRadioButtonId();
         Question question = this.store.get(this.position);
-        result.put(position, id);
+        if (id == this.store.get(position).getAnswer()) {
+            result[position] = (position + 1) + " question is correct";
+        } else {
+            result[position] = (position + 1) + " question is incorrect";
+        }
         Toast.makeText(
                 this, "Your answer is " + id + ", correct is " + question.getAnswer(),
                 Toast.LENGTH_SHORT
         ).show();
-        Toast.makeText(this, "result map: " + result, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -62,11 +69,18 @@ public class ExamActivity extends AppCompatActivity {
         this.fillForm();
         Button next = findViewById(R.id.next);
         next.setOnClickListener(this::nextBtn);
-
         Button previous = findViewById(R.id.previous);
         previous.setOnClickListener(this::prevBtn);
+        Button hint = findViewById(R.id.hint);
+        hint.setOnClickListener(this::hintBtn);
         Log.d(TAG, "Turn Counter: " + String.valueOf(counterTurn));
         Log.d(TAG, "onCreate");
+    }
+
+    private void hintBtn(View view) {
+        Intent intent = new Intent(ExamActivity.this, HintActivity.class);
+        intent.putExtra(HINT_FOR, position);
+        startActivity(intent);
     }
 
     private void prevBtn(View view) {
@@ -77,18 +91,21 @@ public class ExamActivity extends AppCompatActivity {
     private void nextBtn(View view) {
         RadioGroup variants = findViewById(R.id.variants);
         int id = variants.getCheckedRadioButtonId();
-        if (id != -1) {
+        if (id != -1 && position < store.size() - 1) {
             showAnswer();
             position++;
             fillForm();
         } else {
             showAnswer();
             fillForm();
+            Intent intent = new Intent(ExamActivity.this, ResultActivity.class);
+            intent.putExtra(RESULT_MAP, result);
+            startActivity(intent);
         }
     }
 
     private void radioCheck(RadioGroup radioGroup, int i) {
-        if (position != store.size() - 1) {
+        if (position != store.size()) {
             findViewById(R.id.next).setEnabled(true);
         }
     }
